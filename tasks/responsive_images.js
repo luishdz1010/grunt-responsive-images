@@ -322,8 +322,8 @@ module.exports = function(grunt) {
 
         if (!sizeOptions.aspectRatio && sizeOptions.width && sizeOptions.height) {
           // crop image
-          sizingMethod = '^';
-          mode = 'crop';
+          sizingMethod = sizeOptions.exactDimensions? '!' : '^';
+          mode = sizeOptions.exactDimensions? 'crop' : 'resize';
         }
 
         if (sizeOptions.width > size.width || sizeOptions.height > size.height) {
